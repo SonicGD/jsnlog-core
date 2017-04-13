@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JSNLog.Core
+namespace JSNLogCore
 {
     public static class JSNLogExtensions
     {

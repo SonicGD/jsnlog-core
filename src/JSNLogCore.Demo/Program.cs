@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace JSNLog.Core.Demo
+namespace JSNLogCore.Demo
 {
     public class Program
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace JSNLog.Core
+namespace JSNLogCore
 {
     internal class JSNLogMessage
     {

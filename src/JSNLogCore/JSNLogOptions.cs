@@ -1,4 +1,4 @@
-﻿namespace JSNLog.Core
+﻿namespace JSNLogCore
 {
     public class JSNLogOptions
     {

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSNLog.Core", "src\JSNLog.Core\JSNLog.Core.csproj", "{CD3AEA4C-073C-4A68-909B-1713427A6E8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSNLogCore", "src\JSNLogCore\JSNLogCore.csproj", "{CD3AEA4C-073C-4A68-909B-1713427A6E8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSNLog.Core.Demo", "src\JSNLog.Core.Demo\JSNLog.Core.Demo.csproj", "{2B88CB62-1BF1-42E4-99FB-2357533BA2AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSNLogCore.Demo", "src\JSNLogCore.Demo\JSNLogCore.Demo.csproj", "{2B88CB62-1BF1-42E4-99FB-2357533BA2AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

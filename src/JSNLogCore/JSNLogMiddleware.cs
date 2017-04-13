@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace JSNLog.Core
+namespace JSNLogCore
 {
     public class JSNLogMiddleware
     {
