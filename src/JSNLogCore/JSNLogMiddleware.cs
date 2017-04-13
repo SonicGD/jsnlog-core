@@ -23,36 +23,39 @@ namespace JSNLogCore
         {
             if (context.Request.Path == _options.Route)
             {
-                using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
+                if (context.Request.Body.CanRead)
                 {
-                    var body = await reader.ReadToEndAsync();
-                    var jsnLogMessage = JsonConvert.DeserializeObject<JSNLogMessage>(body);
-                    if (jsnLogMessage != null)
+                    using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
                     {
-                        foreach (var jsnLogEntry in jsnLogMessage.Entries)
+                        var body = await reader.ReadToEndAsync();
+                        var jsnLogMessage = JsonConvert.DeserializeObject<JSNLogMessage>(body);
+                        if (jsnLogMessage != null)
                         {
-                            switch (jsnLogEntry.Level)
+                            foreach (var jsnLogEntry in jsnLogMessage.Entries)
                             {
-                                case JSNLogLevel.Trace:
-                                    logger.LogTrace(jsnLogEntry.Message);
-                                    break;
-                                case JSNLogLevel.Debug:
-                                    logger.LogDebug(jsnLogEntry.Message);
-                                    break;
-                                case JSNLogLevel.Info:
-                                    logger.LogInformation(jsnLogEntry.Message);
-                                    break;
-                                case JSNLogLevel.Warn:
-                                    logger.LogWarning(jsnLogEntry.Message);
-                                    break;
-                                case JSNLogLevel.Error:
-                                    logger.LogError(jsnLogEntry.Message);
-                                    break;
-                                case JSNLogLevel.Fatal:
-                                    logger.LogCritical(jsnLogEntry.Message);
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException();
+                                switch (jsnLogEntry.Level)
+                                {
+                                    case JSNLogLevel.Trace:
+                                        logger.LogTrace(jsnLogEntry.Message);
+                                        break;
+                                    case JSNLogLevel.Debug:
+                                        logger.LogDebug(jsnLogEntry.Message);
+                                        break;
+                                    case JSNLogLevel.Info:
+                                        logger.LogInformation(jsnLogEntry.Message);
+                                        break;
+                                    case JSNLogLevel.Warn:
+                                        logger.LogWarning(jsnLogEntry.Message);
+                                        break;
+                                    case JSNLogLevel.Error:
+                                        logger.LogError(jsnLogEntry.Message);
+                                        break;
+                                    case JSNLogLevel.Fatal:
+                                        logger.LogCritical(jsnLogEntry.Message);
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
+                                }
                             }
                         }
                     }

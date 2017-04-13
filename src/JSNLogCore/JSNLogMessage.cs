@@ -9,7 +9,7 @@ namespace JSNLogCore
         public string RequestId { get; set; }
 
         [JsonProperty("lg")]
-        public List<JSNLogEntry> Entries { get; set; }
+        public List<JSNLogEntry> Entries { get; set; } = new List<JSNLogEntry>();
     }
 
     internal class JSNLogEntry
