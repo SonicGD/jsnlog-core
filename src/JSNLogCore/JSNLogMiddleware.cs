@@ -28,7 +28,19 @@ namespace JSNLogCore
                     using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
                     {
                         var body = await reader.ReadToEndAsync();
-                        var jsnLogMessage = JsonConvert.DeserializeObject<JSNLogMessage>(body);
+                        JSNLogMessage jsnLogMessage;
+                        try
+                        {
+                            jsnLogMessage = JsonConvert.DeserializeObject<JSNLogMessage>(body);
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.LogError($"Bad request with body: {body}. {ex.Message}");
+                            context.Response.StatusCode = 400;
+                            await context.Response.WriteAsync("Bad request");
+                            return;
+                        }
+
                         if (jsnLogMessage != null)
                         {
                             foreach (var jsnLogEntry in jsnLogMessage.Entries)
