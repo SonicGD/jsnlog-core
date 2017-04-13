@@ -43,27 +43,33 @@ namespace JSNLogCore
 
                         if (jsnLogMessage != null)
                         {
+                            const string message = "Message: {message}. Source: {referrer}.";
+                            var referrer = "unknown";
+                            if (context.Request.Headers.ContainsKey("referer"))
+                            {
+                                referrer = context.Request.Headers["referer"].ToString();
+                            }
                             foreach (var jsnLogEntry in jsnLogMessage.Entries)
                             {
                                 switch (jsnLogEntry.Level)
                                 {
                                     case JSNLogLevel.Trace:
-                                        logger.LogTrace(jsnLogEntry.Message);
+                                        logger.LogTrace(message, jsnLogEntry.Message, referrer);
                                         break;
                                     case JSNLogLevel.Debug:
-                                        logger.LogDebug(jsnLogEntry.Message);
+                                        logger.LogDebug(message, jsnLogEntry.Message, referrer);
                                         break;
                                     case JSNLogLevel.Info:
-                                        logger.LogInformation(jsnLogEntry.Message);
+                                        logger.LogInformation(message, jsnLogEntry.Message, referrer);
                                         break;
                                     case JSNLogLevel.Warn:
-                                        logger.LogWarning(jsnLogEntry.Message);
+                                        logger.LogWarning(message, jsnLogEntry.Message, referrer);
                                         break;
                                     case JSNLogLevel.Error:
-                                        logger.LogError(jsnLogEntry.Message);
+                                        logger.LogError(message, jsnLogEntry.Message, referrer);
                                         break;
                                     case JSNLogLevel.Fatal:
-                                        logger.LogCritical(jsnLogEntry.Message);
+                                        logger.LogCritical(message, jsnLogEntry.Message, referrer);
                                         break;
                                     default:
                                         throw new ArgumentOutOfRangeException();
