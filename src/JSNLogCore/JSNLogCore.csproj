@@ -11,6 +11,7 @@
     <PackageTags>jsonlog, logging</PackageTags>
     <AssemblyName>JSNLogCore</AssemblyName>
     <RootNamespace>JSNLogCore</RootNamespace>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
